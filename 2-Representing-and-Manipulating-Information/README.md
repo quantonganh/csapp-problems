@@ -71,3 +71,47 @@ Because `a ^ a = 0`
 > What simple modification to the code for reverse_array would eliminate this problem?
 
 Just change the condition to `first < last`.
+
+## 2.2.3 Two's-Complement Encodings
+
+```c
+#include "stdio.h"
+
+typedef unsigned char *byte_pointer;
+
+void show_bytes(byte_pointer start, size_t len) {
+    for (int i = 0; i < len; i++) {
+        printf(" %.2x", start[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    short x = 12345;
+    short mx = -x;
+
+    show_bytes((byte_pointer) &x, sizeof(short));
+    show_bytes((byte_pointer) &mx, sizeof(x));
+}
+
+```
+
+```sh
+$ ./twos-complement
+ 39 30
+ c7 cf
+```
+
+```sh
+$ echo "ibase=16; obase=2; 3039" | bc
+11000000111001
+
+$ echo "ibase=2; 11000000111001" | bc
+12345
+
+$ echo "ibase=16; obase=2; CFC7" | bc
+1100111111000111
+
+$ echo "ibase=2; 1100111111000111" | bc
+53191
+```
