@@ -1,3 +1,5 @@
+# 1.2 Programs Are Translated by Other Programs into Different Forms
+
 Preprocessing phase:
 
 ```sh
@@ -48,3 +50,25 @@ $ clang hello.o -o hello
 $ ./hello
 hello, world
 ```
+
+# 1.4 Processors Read and Interpret Instructions Stored in Memory
+
+- copy code and data in the `hello` object file from disk to memory
+- execute machine-langugage instructions in the `hello` program's `main` routine
+- copy the bytes in the `hello, world\n` string from memory to register file, and from there to the display device
+
+# 1.9 Important Themes
+
+## 1.9.2 Concurrency and Parallelism
+
+- Thread-level concurrency
+- Instruction-level parallelism
+- Single-Instruction, Multiple-Data parallelism
+
+## 1.9.3 The Importance of Abstractions in Computer Systems
+
+OS kernel provides 3 fundamental abstractions:
+
+- files: abstraction of I/O devices
+- virtual memory: abstraction of program memory
+- processes: abstraction of a running program
